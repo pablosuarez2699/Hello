@@ -1,13 +1,32 @@
 #!/bin/bash
 
+# Set the project directory
+project_dir="/home/pablo/test_git/Hello"
+
 # Navigate to your project directory
-cd /home/test_git/Hello
+cd "$project_dir" || { echo "Failed to navigate to the project directory. Exiting."; exit 1; }
 
-# Add all changes to staging area
-git add .
+# Add all changes to the staging area
+if git add .; then
+    echo "Changes added to staging area."
+else
+    echo "Failed to add changes to staging area. Exiting."
+    exit 1
+fi
 
-# Commit changes
-git commit -m "updated"
+# Commit changes with a commit message
+if git commit -m "updated"; then
+    echo "Changes committed."
+else
+    echo "Failed to commit changes. Exiting."
+    exit 1
+fi
 
-# Push changes to remote repository
-git push origin mai
+# Push changes to the remote repository (assuming the branch is 'mai')
+if git push origin mai; then
+    echo "Changes pushed to remote repository."
+else
+    echo "Failed to push changes to the remote repository. Exiting."
+    exit 1
+fi
+
