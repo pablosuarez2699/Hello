@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Navigate to your project directory
+cd /home/test_git/Hello
+
+# Add all changes to staging area
+git add .
+
+# Commit changes
+git commit -m "updated"
+
+# Push changes to remote repository
+git push origin mai
